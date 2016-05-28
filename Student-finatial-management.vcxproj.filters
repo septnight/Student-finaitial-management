@@ -41,7 +41,7 @@
     <ClInclude Include="src\analysis\DataAnalysis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Desktop\cppproject\C++File\C++File\File.h">
+    <ClInclude Include="test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
