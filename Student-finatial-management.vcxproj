@@ -97,17 +97,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="File.cpp" />
     <ClCompile Include="src\Localtime.cpp" />
     <ClCompile Include="src\main_test.cpp" />
     <ClCompile Include="src\uinput.cpp" />
     <ClCompile Include="src\User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="File.h" />
     <ClInclude Include="src\analysis\DataAnalysis.h" />
     <ClInclude Include="src\Localtime.h" />
     <ClInclude Include="src\uinput.h" />
     <ClInclude Include="src\User.h" />
-    <ClInclude Include="test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

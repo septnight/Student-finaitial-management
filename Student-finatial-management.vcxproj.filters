@@ -27,6 +27,9 @@
     <ClCompile Include="src\User.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="File.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Localtime.h">
@@ -41,7 +44,7 @@
     <ClInclude Include="src\analysis\DataAnalysis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="test.h">
+    <ClInclude Include="File.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
