@@ -103,6 +103,7 @@
     <ClCompile Include="src\User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Desktop\cppproject\C++File\C++File\File.h" />
     <ClInclude Include="src\analysis\DataAnalysis.h" />
     <ClInclude Include="src\Localtime.h" />
     <ClInclude Include="src\uinput.h" />
