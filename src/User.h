@@ -1,7 +1,6 @@
 //
 // Created by 墨林 on 16/5/24.
 //
-
 #ifndef STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_USERSYSTEM_H
 #define STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_USERSYSTEM_H
 #include <string>
@@ -12,19 +11,24 @@
 class User:Localtime{
 public:
     User();
-    bool userLogin();
-    void createUser();
-    bool initializeFile();
+	virtual ~User();
+	bool initializeFile();
+	std::string getName();
+	std::string getPass();
+	void setUsername(std::string);
+	void setCreatedate(Localtime);
+	void setPassword(std::string);
+	int getUserNumber();
+	void createUser();
 
-	/* TODO: 添加以user number查找user的方法 */
-	int getUserNumber() const { return userNumber; }
+	void createUser(std::string name);
 private:
-    std::string Username = "null";
-    Localtime createDate;
-    std::string Password;
-    std::ifstream loadUser;
-    int userNumber = 1;
-    std::string idCode;
+	std::string Username = "null";
+	Localtime createDate;
+	std::string Password;
+	std::ifstream loadUser;
 
+
+    int idCode;
 };
 #endif //STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_USERSYSTEM_H

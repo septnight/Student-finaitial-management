@@ -33,7 +33,7 @@ void Setting::saveSet() {
         ifExist.read(reinterpret_cast< char*>(&readSet),
                      sizeof(readSet));
         while(ifExist&&!ifExist.eof()){
-            readSet.numberofUser
+
         }
     }
 }

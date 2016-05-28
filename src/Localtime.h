@@ -8,6 +8,7 @@
 class Localtime{
 public:
     Localtime(int year = 1970, int month = 1, int day = 1, int hour = 0, int minute = 0, int second = 0);
+	virtual ~Localtime();
     void getLocaltime();
     void output(std::ofstream&);
     int getYear();
