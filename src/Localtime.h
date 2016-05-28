@@ -10,6 +10,12 @@ public:
     Localtime();
     void getLocaltime();
     void output(std::ofstream&);
+    int getYear();
+    int getMonth();
+    int getDay();
+    int getHour();
+    int getMinute();
+    int getSecond();
 private:
     int year;
     int month;

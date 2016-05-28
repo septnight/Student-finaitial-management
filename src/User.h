@@ -12,14 +12,15 @@ class User:Localtime{
 public:
     User();
     bool userLogin();
-    bool haveLogon();
     void createUser();
-    void organize();
+    bool initializeFile();
 private:
-    std::string Username;
+    std::string Username = "null";
     Localtime createDate;
     std::string Password;
     std::ifstream loadUser;
+    int userNumber = 1;
+    std::string idCode;
 
 };
 #endif //STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_USERSYSTEM_H

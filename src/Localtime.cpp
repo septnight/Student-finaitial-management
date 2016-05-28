@@ -9,6 +9,11 @@ using namespace std;
 Localtime::Localtime() {
 
 }
+int Localtime::getDay() {return day;}
+int Localtime::getHour() {return hour;}
+int Localtime::getMinute(){return minute;}
+int Localtime::getYear(){return year;}
+int Localtime::getMonth(){return month;}
 
 void Localtime::getLocaltime() {
     time_t now_time=time(0);
