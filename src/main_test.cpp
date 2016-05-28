@@ -12,6 +12,6 @@ using namespace std;
 int main(){
     User merlin;
     merlin.organize();
-	cout << "hellow";
+
 
 }
