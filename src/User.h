@@ -8,12 +8,16 @@
 #include <fstream>
 #include "Localtime.h"
 
+/* XXX: should be composition, not inheritance */
 class User:Localtime{
 public:
     User();
     bool userLogin();
     void createUser();
     bool initializeFile();
+
+	/* TODO: 添加以user number查找user的方法 */
+	int getUserNumber() const { return userNumber; }
 private:
     std::string Username = "null";
     Localtime createDate;

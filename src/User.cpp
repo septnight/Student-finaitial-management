@@ -22,7 +22,8 @@ User::User() {
 }
 
 bool User::userLogin() {
-
+	/* TODO: not implemented */
+	return false;
 }
 
 bool User::initializeFile(){
@@ -41,7 +42,7 @@ bool User::initializeFile(){
 }
 
 void User::createUser() {
-    if(!initializeFile){
+    if(!initializeFile()){
         exit(EXIT_FAILURE);
     }
     cout<<"New man? Let's create a account!"<<endl;

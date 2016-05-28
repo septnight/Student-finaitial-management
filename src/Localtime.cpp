@@ -4,9 +4,13 @@
 #include "Localtime.h"
 #include <iostream>
 #include <fstream>
+#include <cstdio>
+#include <ctime>
+
 using namespace std;
 
-Localtime::Localtime() {
+Localtime::Localtime(int year, int month, int day, int hour, int minute, int second) 
+	: year(year), month(month), day(day), hour(hour), minute(minute), second(second) {
 
 }
 int Localtime::getDay() {return day;}
@@ -14,6 +18,7 @@ int Localtime::getHour() {return hour;}
 int Localtime::getMinute(){return minute;}
 int Localtime::getYear(){return year;}
 int Localtime::getMonth(){return month;}
+int Localtime::getSecond() { return second; }
 
 void Localtime::getLocaltime() {
     time_t now_time=time(0);
@@ -32,4 +37,16 @@ void Localtime::output(std::ofstream &output) {
     output<<year<<"-"<<month<<
     "-"<<day<<" "<<hour<<":"<<minute
     <<":"<<second<<endl;
+}
+
+string Localtime::serialize()
+{
+	char buf[100];
+	sprintf(buf, "%04d/%02d/%02d %02d:%02d:%02d", year, month, day, hour, minute, second);
+	return string(buf);
+}
+
+void Localtime::deserialize(const string& s)
+{
+	sscanf(s.c_str(), "%d/%d/%d %d:%d:%d", &year, &month, &day, &hour, &minute, &second);
 }

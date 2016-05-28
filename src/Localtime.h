@@ -7,7 +7,7 @@
 #include <string>
 class Localtime{
 public:
-    Localtime();
+    Localtime(int year = 1970, int month = 1, int day = 1, int hour = 0, int minute = 0, int second = 0);
     void getLocaltime();
     void output(std::ofstream&);
     int getYear();
@@ -16,6 +16,10 @@ public:
     int getHour();
     int getMinute();
     int getSecond();
+
+	/* conversion between blob and "yyyy/MM/dd hh:mm:ss" string */
+	std::string serialize();
+	void deserialize(const std::string& s);
 private:
     int year;
     int month;
