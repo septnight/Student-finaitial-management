@@ -40,26 +40,26 @@ void Action::userLogin() {
                     case'y':
                     case'Y':
                         createUser(buf);
-                        break;
+                        goto welcome;
                     default:
                         cerr<<"Error, cannot reach!"<<endl;
                 }
             }
         }
     }
+    enterpass:
+    cout << "Enter the password:" << endl;
+    cin >> buf;
+    if (buf != demo.Password) {
+        cout << "Incorrect password!" << endl;
+        goto enterpass;
 
-    bool flag = true;
-    while(flag) {
-        cout << "Enter the password:" << endl;
-        cin >> buf;
-        if (buf != demo.Password) {
-            cout << "Incorrect password!" << endl;
-        }
-        else {
-            cout << "Welcome " << demo.Username << endl;
-            flag = false;
-        }
     }
+    else {
+        welcome:
+        cout << "Welcome " << demo.Username << endl;
+    }
+
     compare.close();
 }
 
@@ -113,8 +113,8 @@ void Action::createUser() {
 }
 
 void Action::createUser(std::string Username) {
-    User createU;
-    createU.Username = Username;
+
+    demo.Username = Username;
     cout<<"Great! Then, enter your password:"<<endl;
     again:  string password;
     cin>>password;//这里也是,要无回显
@@ -125,21 +125,21 @@ void Action::createUser(std::string Username) {
         cerr << "Mismatch! Enter again!" << endl;
         goto again;//可以插入错误图标
     }
-    createU.Password = password;
+    demo.Password = password;
     Localtime createTime;
     createTime.getLocaltime();
-    createU.createDate = createTime;
+    demo.createDate = createTime;
     stringstream code;
-    code<<createU.createDate.getYear()
-    <<createU.createDate.getMonth()
-    <<createU.createDate.getDay()
-    <<createU.createDate.getHour()
-    <<createU.createDate.getMinute()
-    <<createU.createDate.getSecond();
-    code>>createU.idCode;
+    code<<demo.createDate.getYear()
+    <<demo.createDate.getMonth()
+    <<demo.createDate.getDay()
+    <<demo.createDate.getHour()
+    <<demo.createDate.getMinute()
+    <<demo.createDate.getSecond();
+    code>>demo.idCode;
     std::ofstream output;
     output.open("userslist.dat", ios::app|ios::binary);
-    output.write(reinterpret_cast<const char*>(&createU), sizeof(User));
+    output.write(reinterpret_cast<const char*>(&demo), sizeof(User));
 }
 
 bool Action::initializeFile() {
