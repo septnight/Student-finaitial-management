@@ -1,22 +1,30 @@
 //
 // Created by 墨林 on 16/5/24.
 //
+
 #ifndef STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_USERSYSTEM_H
 #define STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_USERSYSTEM_H
 #include <string>
 #include <fstream>
 #include "Localtime.h"
-#include "Model/BaseDataStorage.h"
 
-
-/* XXX: should be composition, not inheritance*/
-
-struct User{
+/* XXX: should be composition, not inheritance */
+class User:Localtime{
+public:
 	User();
-	std::string Username;
+	bool userLogin();
+	void createUser();
+	bool initializeFile();
+
+	/* TODO: 添加以user number查找user的方法 */
+	int getUserNumber() const { return userNumber; }
+private:
+	std::string Username = "null";
 	Localtime createDate;
 	std::string Password;
-	std::string idCode = "000";
-	int getUserNumber();
+	std::ifstream loadUser;
+	int userNumber = 1;
+	std::string idCode;
+
 };
 #endif //STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_USERSYSTEM_H

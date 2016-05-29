@@ -29,12 +29,13 @@ void Setting::saveSet() {
                      sizeof(writeSet));
 
     }
-    else{
+    else {
         Setting readSet;
-        ifExist.read(reinterpret_cast< char*>(&readSet),
+        ifExist.read(reinterpret_cast< char *>(&readSet),
                      sizeof(readSet));
-        while(ifExist&&!ifExist.eof()){
+        while (ifExist && !ifExist.eof()) {
 
+        }
     }
 
 }

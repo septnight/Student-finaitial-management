@@ -9,13 +9,11 @@
 
 #include "Model/BaseDataStorage.h"
 #include "Model/FileDataStorage.h"
-#include "Action.h"
 
 using namespace std;
 
 int main() {
-    Action run;
-    run.startApp();
+
 
 	/* data storage demonstration */
 	/*BaseDataStorage* db = new FileDataStorage("d:\\database.txt");
@@ -38,5 +36,5 @@ int main() {
 	db->finish();
 
 	return 0;
-	//system("pause");
+	//system("pause");*/
 }

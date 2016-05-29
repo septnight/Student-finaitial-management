@@ -6,7 +6,6 @@
 
 #include "../Localtime.h"
 #include "../User.h"
-
 #include <string>
 
 /* representation for single account record */
