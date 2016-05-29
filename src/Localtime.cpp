@@ -50,3 +50,8 @@ void Localtime::deserialize(const string& s)
 {
 	sscanf(s.c_str(), "%d/%d/%d %d:%d:%d", &year, &month, &day, &hour, &minute, &second);
 }
+Localtime::~Localtime() {
+
+}
+
+
