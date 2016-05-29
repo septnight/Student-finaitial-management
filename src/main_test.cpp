@@ -38,6 +38,6 @@ int main() {
 	db->finish();
 
 	return 0;*/
-	system("pause");
+	//system("pause");
 	return 0;
 }

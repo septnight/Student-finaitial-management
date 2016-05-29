@@ -8,9 +8,6 @@
 
 using namespace std;
 
-Action::Action() {
-}
-
 
 void Action::userLogin() {
     ifstream compare("userslist.dat", ios::in|ios::binary);
@@ -19,15 +16,16 @@ void Action::userLogin() {
     read:
     compare.seekg(0);
     compare.read(reinterpret_cast<char*>(&demo), sizeof(User));
+
     cout<<"Enter your username:"<<endl;
     cin>>buf;
     while(!(compare.eof())) {
-        compare.read(reinterpret_cast<char*>(&demo), sizeof(User));
         if (buf == demo.Username) {
             break;
         }
         else
         {
+            compare.read(reinterpret_cast<char*>(&demo), sizeof(User));
             if(compare.eof())
             {
                 cout<<"The user is not exist, do you want to create a new user? Y/N"<<endl;
@@ -35,6 +33,8 @@ void Action::userLogin() {
                 switch(chose){
                     case 'n':
                     case 'N':
+                        cin.clear();
+                        cin.ignore( numeric_limits<streamsize>::max(), '\n' );
                         goto read;
                     case'y':
                     case'Y':
@@ -56,7 +56,7 @@ void Action::userLogin() {
     }
     else {
         welcome:
-        cout << "Welcome " << demo.Username << endl;
+        cout << "Welcome " << demo.Username << endl<<demo.idCode;
     }
 
     compare.close();
@@ -136,6 +136,7 @@ void Action::createUser(std::string Username) {
     <<demo.createDate.getMinute()
     <<demo.createDate.getSecond();
     code>>demo.idCode;
+    cout<<demo.idCode<<endl;
     std::ofstream output;
     output.open("userslist.dat", ios::app|ios::binary);
     output.write(reinterpret_cast<const char*>(&demo), sizeof(User));

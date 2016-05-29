@@ -8,7 +8,7 @@ using namespace std;
 
 
 int User::getUserNumber() {
-    return 0;
+    return idCode;
 }
 
 User::User() {
