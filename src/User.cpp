@@ -35,9 +35,6 @@ bool User::prepare() {
 
 int User::write(Urecord* from){
     if(from->isEmpty()|fs.is_open()) return -1;
-    vector<Urecord*> counter;
-    fetch_all(counter);
-    id = counter.size();
     fs.seekg(id*sizeof(Urecord));
     fs.write(reinterpret_cast<char*>(&from), sizeof(from));
     id += 1;
@@ -82,12 +79,12 @@ int User::fetch_all(vector<Urecord*>& u) {
             u.push_back(rec);
         }
     }
+    id = u.size();
 }
 
 void User::extract_entry(Urecord *from, Urecord *to) {
     to->Username = from->Username;
     to->createDate = from->createDate;
-    to->idCode = from ->idCode;
     to->Password = from ->Password;
 }
 
@@ -95,13 +92,13 @@ void User::finish() {
     fs.close();
 }
 
-
-
-
-
-
-
-
-
-
-
+void User::searchUser(int usernumber, Urecord*back) {
+    vector<Urecord*> find;
+    fetch_all(find);
+    for(auto user:find){
+        if(user->userNumber == usernumber) {
+            extract_entry(user, back);
+            return;
+        }
+    }
+}

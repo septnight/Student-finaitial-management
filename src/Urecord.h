@@ -8,10 +8,9 @@
 #include "Localtime.h"
 struct Urecord{
     std::string Username = "";
-    int userNumber;
+    int userNumber = 0;
     Localtime createDate;
     std::string Password;
-    std::string idCode = "0000";
     bool isEmpty();
 };
 

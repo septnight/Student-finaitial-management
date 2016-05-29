@@ -23,6 +23,8 @@ public:
 	void finish();
 
 	/* TODO: 添加以user number查找user的方法 */
+	void searchUser(int, Urecord*);
+
 	int getUserNumber() const { return userNumber; }
 private:
 	std::string Username = "null";
@@ -35,7 +37,7 @@ private:
 	std::string filename;
 	std::fstream fs;
 	bool init_cache();
-	int id;
+	int id = 0;
 	static void extract_entry(Urecord* from, Urecord* to);
 };
 #endif //USER_H

@@ -10,13 +10,7 @@
 
 class Action {
 public:
-	User demo;
-	void userLogin();
-	void startApp();
-	void createUser();
-	void createUser(std::string);
-	bool initializeFile();
-	void saveSet();
+	Action();
 private:
 	std::ifstream loadUser;
 };
