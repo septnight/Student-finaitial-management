@@ -8,7 +8,7 @@
 using namespace std;
 
 User::User() {
-    cerr<<this<<endl;
+    cerr<<"User c:"<<this<<endl;
 }
 
 
@@ -25,7 +25,7 @@ bool User::initializeFile(){
         return false;
     }
     User blankUser;
-    for( int i = 0; i>5; i++){
+    for( int i = 0; i<5; i++){
         out.write(reinterpret_cast<const char*>(&blankUser),
         sizeof(User));
     }
@@ -36,7 +36,7 @@ bool User::initializeFile(){
 
 
 User::~User() {
-    cerr<<this<<endl;
+    cerr<<"User:"<<this<<endl;
 }
 
 void User::setUsername(std::string name) {
