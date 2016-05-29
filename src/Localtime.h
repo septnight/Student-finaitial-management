@@ -2,8 +2,8 @@
 // Created by 墨林 on 16/5/24.
 //
 
-#ifndef STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_LOCALTIME_H
-#define STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_LOCALTIME_H
+#ifndef LOCALTIME_H
+#define LOCALTIME_H
 #include <string>
 class Localtime{
 public:
@@ -30,4 +30,4 @@ private:
     int second;
 };
 
-#endif //STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_LOCALTIME_H
+#endif //LOCALTIME_H

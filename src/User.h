@@ -2,8 +2,8 @@
 // Created by 墨林 on 16/5/24.
 //
 
-#ifndef STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_USERSYSTEM_H
-#define STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_USERSYSTEM_H
+#ifndef USER_H
+#define USER_H
 #include <string>
 #include <fstream>
 #include <vector>
@@ -38,4 +38,4 @@ private:
 	int id;
 	static void extract_entry(Urecord* from, Urecord* to);
 };
-#endif //STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_USERSYSTEM_H
+#endif //USER_H
