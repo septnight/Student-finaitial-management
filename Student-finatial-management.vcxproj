@@ -107,7 +107,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Action.cpp" />
+    <ClCompile Include="Action.cpp" />
     <ClCompile Include="src\Localtime.cpp" />
     <ClCompile Include="src\main_test.cpp" />
     <ClCompile Include="src\Model\FileDataStorage.cpp" />
@@ -115,7 +115,7 @@
     <ClCompile Include="src\User.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Action.h" />
+    <ClInclude Include="Action.h" />
     <ClInclude Include="src\analysis\DataAnalysis.h" />
     <ClInclude Include="src\Localtime.h" />
     <ClInclude Include="src\Model\BaseDataStorage.h" />
