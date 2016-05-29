@@ -161,7 +161,6 @@ void Action::saveSet() {
 		for (int i = 0; i<5; i++) {
 			//            initialize.write(reinterpret_cast<const char*>(&))
 		}
-
 	}
 }
 
