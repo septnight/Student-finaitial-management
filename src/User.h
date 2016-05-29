@@ -6,8 +6,10 @@
 #include <string>
 #include <fstream>
 #include "Localtime.h"
+#include "Model/BaseDataStorage.h"
 
-/* XXX: should be composition, not inheritance */
+
+/* XXX: should be composition, not inheritance*/
 
 struct User{
 	User();

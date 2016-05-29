@@ -7,6 +7,7 @@
 #include "User.h"
 #include "Localtime.h"
 #include <fstream>
+
 class Action{
 public:
     User demo;
@@ -15,6 +16,7 @@ public:
     void createUser();
     void createUser(std::string);
     bool initializeFile();
+    void saveSet();
 private:
     std::ifstream loadUser;
 };

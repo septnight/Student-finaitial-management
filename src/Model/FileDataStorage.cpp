@@ -45,7 +45,6 @@ int FileDataStorage::allocate_id()
 	} else {
 		index = nr_entries++;
 	}
-
 	return index;
 }
 

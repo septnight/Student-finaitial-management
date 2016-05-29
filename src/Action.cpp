@@ -14,7 +14,7 @@ void Action::userLogin() {
     string buf;
     char chose;
     read:
-    compare.seekg(0);
+        compare.seekg(0);
     compare.read(reinterpret_cast<char*>(&demo), sizeof(User));
 
     cout<<"Enter your username:"<<endl;
@@ -156,6 +156,20 @@ bool Action::initializeFile() {
     out.close();
     return true;
 }
+
+void Action::saveSet() {
+    ifstream check("setting.dat", ios::binary|ios::in);
+
+    if (!check){
+        ofstream initialize("setting.dat", ios::binary|ios::out);
+        for( int i = 0; i<5; i++){
+//            initialize.write(reinterpret_cast<const char*>(&))
+        }
+
+    }
+}
+
+
 
 
 
