@@ -8,7 +8,7 @@
 #include "Localtime.h"
 
 /* XXX: should be composition, not inheritance */
-class User:Localtime{
+class User{
 public:
     User();
 	virtual ~User();
