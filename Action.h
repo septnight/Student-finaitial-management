@@ -4,8 +4,10 @@
 
 #ifndef ACTION_H
 #define ACTION_H
-#include "User.h"
-#include "Localtime.h"
+//#include "User.h"
+//#include "Localtime.h"
+#include "../User.h"
+#include "../Localtime.h"
 #include <fstream>
 
 class Action {
