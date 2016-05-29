@@ -11,3 +11,9 @@ Action::Action() {
 
 }
 
+void Action::createUser(string location_file) {
+
+}
+
+
+
