@@ -30,7 +30,7 @@
     <ClCompile Include="src\Model\FileDataStorage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Action.cpp">
+    <ClCompile Include="src\Action.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,7 +56,7 @@
     <ClInclude Include="src\Model\FileDataStorage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Action.h">
+    <ClInclude Include="src\Action.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
