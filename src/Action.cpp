@@ -40,7 +40,6 @@ void Action::userLogin() {
                     case'Y':
                         createUser(buf);
                         goto welcome;
-                        break;
                     default:
                         cerr<<"Error, cannot reach!"<<endl;
                 }
@@ -53,6 +52,7 @@ void Action::userLogin() {
     if (buf != demo.Password) {
         cout << "Incorrect password!" << endl;
         goto enterpass;
+
     }
     else {
         welcome:
