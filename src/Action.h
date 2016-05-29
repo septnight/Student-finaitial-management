@@ -1,5 +1,5 @@
 //
-// Created by д╚аж on 16/5/28.
+//
 //
 
 #ifndef STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_ACTION_H

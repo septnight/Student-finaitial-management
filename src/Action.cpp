@@ -1,7 +1,4 @@
 
-//
-// Created by Ä«ÁÖ on 16/5/28.
-//
 #include "User.h"
 #include "Action.h"
 #include <iostream>
@@ -82,17 +79,17 @@ void Action::createUser() {
 	cout << "New man? Let's create a account!" << endl;
 	cout << "First, please enter the username:" << endl;
 	string Username;
-	cin >> Username;//×ö½çÃæµÄÊ±ºòÔÚÕâÀïÒª¹´Ñ¡PASSWORD
+	cin >> Username;//
 	createU.Username = Username;
 	cout << "Great! Then, enter your password:" << endl;
 again:  string password;
-	cin >> password;//ÕâÀïÒ²ÊÇ,ÒªÎÞ»ØÏÔ
+	cin >> password;//
 	cout << "Confirm your password:" << endl;
 	string temp_password;
 	cin >> temp_password;
 	if (temp_password != password) {
 		cerr << "Mismatch! Enter again!" << endl;
-		goto again;//¿ÉÒÔ²åÈë´íÎóÍ¼±ê
+		goto again;//
 	}
 	createU.Password = password;
 	Localtime createTime;
@@ -115,13 +112,13 @@ void Action::createUser(std::string Username) {
 	demo.Username = Username;
 	cout << "Great! Then, enter your password:" << endl;
 again:  string password;
-	cin >> password;//ÕâÀïÒ²ÊÇ,ÒªÎÞ»ØÏÔ
+	cin >> password;//ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½,Òªï¿½Þ»ï¿½ï¿½ï¿½
 	cout << "Confirm your password:" << endl;
 	string temp_password;
 	cin >> temp_password;
 	if (temp_password != password) {
 		cerr << "Mismatch! Enter again!" << endl;
-		goto again;//¿ÉÒÔ²åÈë´íÎóÍ¼±ê
+		goto again;//ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
 	}
 	demo.Password = password;
 	Localtime createTime;
