@@ -1,74 +1,107 @@
 //
 // Created by 墨林 on 16/5/24.
 //
+
 #include "User.h"
 #include <iostream>
-#include <fstream>
-#include <sstream>
+
 using namespace std;
 
 User::User() {
-    loadUser.open("userslist.dat", ios::binary|ios::in);
-    if(!loadUser)
-    {
-        if(initializeFile())
-            createUser();
-        else
-            cerr<<"Fail to create the initialization file"<<endl;
-    }
-    else{
-        userLogin();
-    }
+
 }
 
-bool User::userLogin() {
-    /* TODO: not implemented */
+int User::getUserNumber() {
+    return id;
+}
+
+
+User::User(std::string Filename) {
+    filename = Filename;
+}
+bool User::prepare() {
+    fs.open(filename, ios::in | ios::out | ios::binary);
+
+    if (!fs) {
+        fs.open(filename, ios::out | ios::binary);
+        fs.close();
+
+        fs.open(filename, ios::in | ios::out | ios::binary);
+        if (!fs) return false;
+    }
+
+    return init_cache();
+}
+
+int User::write(Urecord* from){
+    if(from->isEmpty()|fs.is_open()) return -1;
+    vector<Urecord*> counter;
+    fetch_all(counter);
+    id = counter.size();
+    fs.seekg(id*sizeof(Urecord));
+    fs.write(reinterpret_cast<char*>(&from), sizeof(from));
+    id += 1;
+    return id;
+}
+
+bool User::read(std::string username){
+
+    vector<Urecord*> v;
+    fetch_all(v);
+    for(auto user:v){
+        if(user->Username == username){
+            Username = username;
+            extract_entry(user, &data);
+            return true;
+        }
+    }
     return false;
+
 }
 
-bool User::initializeFile(){
-    ofstream out("userslist.dat", ios::binary|ios::out);
-    if(!out){
-        cerr<<"Cannot open the file"<<endl;
-        return false;
-    }
-    User blankUser;
-    for( int i = 0; i>5; i++){
-        out.write(reinterpret_cast<const char*>(&blankUser),
-                  sizeof(blankUser));
-    }
-    out.close();
+bool User::init_cache() {
+    Urecord entry;
+    if(!fs.is_open()) return false;
     return true;
 }
 
-void User::createUser() {
-    if(!initializeFile()){
-        exit(EXIT_FAILURE);
+int User::fetch_all(vector<Urecord*>& u) {
+    Urecord entry;
+    if(!fs.is_open()) return false;
+
+    u.clear();
+    fs.seekg(0);
+    while(!fs.eof()){
+        fs.read(reinterpret_cast<char*>(&entry), sizeof(Urecord));
+        streamsize count = fs.gcount();
+        if (!count) break;
+        if (count != sizeof(Urecord)) return -1; /* corrupted */
+        if(!entry.isEmpty()){
+            Urecord* rec = new Urecord;
+            extract_entry(&entry, rec);
+            u.push_back(rec);
+        }
     }
-    cout<<"New man? Let's create a account!"<<endl;
-    cout<<"First, please enter the username:"<<endl;
-    string Username;
-    cin>>Username;//做界面的时候在这里要勾选PASSWORD
-    User uinput;
-    uinput.Username = Username;
-    cout<<"Great! Then, enter your password:"<<endl;
-    again:  string password;
-    cin>>password;//这里也是,要无回显
-    cout<<"Confirm your password:"<<endl;
-    string temp_password;
-    cin>>temp_password;
-    if (temp_password != password) {
-        cerr << "Mismatch! Enter again!" << endl;
-        goto again;//可以插入错误图标
-    }
-    uinput.Password = password;
-    Localtime createTime;
-    createTime.getLocaltime();
-    uinput.createDate = createTime;
-    string code;
-    code = "/d/d/d/d/d/d",createDate.getYear()<<createDate.getMonth()<<createDate.getDay()<<createDate.getHour()<<createDate.getMinute()<<createDate.getSecond();
-    idCode = code;
-    std::ofstream output;
-    output.open("userslist.dat", ios::app|ios::binary);
-    output.write(reinterpret_cast<const char*>(&uinput), sizeof(uinput));
 }
+
+void User::extract_entry(Urecord *from, Urecord *to) {
+    to->Username = from->Username;
+    to->createDate = from->createDate;
+    to->idCode = from ->idCode;
+    to->Password = from ->Password;
+}
+
+void User::finish() {
+    fs.close();
+}
+
+
+
+
+
+
+
+
+
+
+
