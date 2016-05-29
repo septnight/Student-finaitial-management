@@ -115,7 +115,6 @@
     <ClCompile Include="src\User.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="File.h" />
     <ClInclude Include="src\analysis\DataAnalysis.h" />
     <ClInclude Include="src\Localtime.h" />
     <ClInclude Include="src\Model\BaseDataStorage.h" />

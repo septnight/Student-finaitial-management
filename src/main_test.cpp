@@ -7,6 +7,7 @@
 #include "Localtime.h"
 #include "User.h"
 
+
 #include "Model\FileDataStorage.h"
 
 using namespace std;
@@ -33,7 +34,10 @@ int main() {
 		cout << p->get_name() << endl;
 	}
 
-	db->finish();
 
+
+	
+	db->finish();
+	system("pause");
 	return 0;
 }

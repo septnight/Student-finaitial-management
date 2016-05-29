@@ -47,9 +47,6 @@
     <ClInclude Include="src\analysis\DataAnalysis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="File.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Model\Record.h">
       <Filter>Header Files</Filter>
     </ClInclude>
