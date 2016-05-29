@@ -14,7 +14,7 @@ struct User{
 	std::string Username;
 	Localtime createDate;
 	std::string Password;
-	int idCode;
+	std::string idCode = "000";
 	int getUserNumber();
 };
 #endif //STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_USERSYSTEM_H

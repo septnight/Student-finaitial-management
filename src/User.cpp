@@ -3,12 +3,12 @@
 //
 #include "User.h"
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 
 int User::getUserNumber() {
-    return idCode;
+    return atoi(idCode.c_str());
 }
 
 User::User() {
