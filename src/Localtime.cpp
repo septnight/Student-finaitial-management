@@ -10,7 +10,7 @@
 using namespace std;
 
 Localtime::Localtime(int year, int month, int day, int hour, int minute, int second)
-        : year(year), month(month), day(day), hour(hour), minute(minute), second(second) {
+	: year(year), month(month), day(day), hour(hour), minute(minute), second(second) {
 
 }
 int Localtime::getDay() {return day;}
@@ -41,14 +41,14 @@ void Localtime::output(std::ofstream &output) {
 
 string Localtime::serialize()
 {
-    char buf[100];
-    sprintf(buf, "%04d/%02d/%02d %02d:%02d:%02d", year, month, day, hour, minute, second);
-    return string(buf);
+	char buf[100];
+	sprintf(buf, "%04d/%02d/%02d %02d:%02d:%02d", year, month, day, hour, minute, second);
+	return string(buf);
 }
 
 void Localtime::deserialize(const string& s)
 {
-    sscanf(s.c_str(), "%d/%d/%d %d:%d:%d", &year, &month, &day, &hour, &minute, &second);
+	sscanf(s.c_str(), "%d/%d/%d %d:%d:%d", &year, &month, &day, &hour, &minute, &second);
 }
 Localtime::~Localtime() {
 }

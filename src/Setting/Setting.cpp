@@ -20,12 +20,20 @@ void Setting::importUser() {
 }
 
 void Setting::saveSet() {
-    ifstream check("setting.dat", ios::binary|ios::in);
-    if (!check){
-        ofstream initialize("setting.dat", ios::binary|ios::out);
-        for( int i = 0; i<5; i++){
-//            initialize.write(reinterpret_cast<const char*>(&))
-        }
+    Setting writeSet;
+    writeSet.numberofUser = this->numberofUser;
+    fstream ifExist("setting.dat", ios::binary|ios::out|ios::in|ios::app);
+    if (!ifExist){
+        ofstream outSet("setting.dat", ios::binary);
+        outSet.write(reinterpret_cast<const char*>(&writeSet),
+                     sizeof(writeSet));
+
+    }
+    else{
+        Setting readSet;
+        ifExist.read(reinterpret_cast< char*>(&readSet),
+                     sizeof(readSet));
+        while(ifExist&&!ifExist.eof()){
 
     }
 
