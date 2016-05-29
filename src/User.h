@@ -8,27 +8,12 @@
 #include "Localtime.h"
 
 /* XXX: should be composition, not inheritance */
-class User{
-public:
-    User();
-	virtual ~User();
-	bool initializeFile();
-	std::string getName();
-	std::string getPass();
-	void setUsername(std::string);
-	void setCreatedate(Localtime);
-	void setPassword(std::string);
-	int getUserNumber();
-	void createUser();
 
-	void createUser(std::string name);
-private:
-	std::string Username = "null";
+struct User{
+	std::string Username;
 	Localtime createDate;
 	std::string Password;
-	std::ifstream loadUser;
-
-
-    int idCode;
+	int idCode;
+	int getUserNumber();
 };
 #endif //STUDENT_PERSONAL_FINANCIAL_MANAGEMENT_USERSYSTEM_H
