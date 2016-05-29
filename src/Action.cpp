@@ -8,21 +8,24 @@
 
 using namespace std;
 
-Action::Action() { }
+Action::Action() {
+    cerr<<"Action:"<<this<<endl;
+}
+
 
 void Action::userLogin() {
     ifstream compare("userslist.dat", ios::in|ios::binary);
-    User readUser;
+    cerr<<"readUser"<<endl;
     string buf;
     char chose;
     read:
     compare.seekg(0);
-    compare.read(reinterpret_cast<char*>(&readUser), sizeof(User));
+    compare.read(reinterpret_cast<char*>(&demo), sizeof(User));
     cout<<"Enter your username:"<<endl;
     cin>>buf;
     while(!(compare.eof())) {
-        compare.read(reinterpret_cast<char*>(&readUser), sizeof(User));
-        if (buf == readUser.getName()) {
+        compare.read(reinterpret_cast<char*>(&demo), sizeof(User));
+        if (buf == demo.getName()) {
             break;
         }
         else
@@ -37,7 +40,7 @@ void Action::userLogin() {
                         goto read;
                     case'y':
                     case'Y':
-                        readUser.createUser(buf);
+                        demo.createUser(buf);
                         break;
                     default:
                         cerr<<"Error, cannot reach!"<<endl;
@@ -50,11 +53,11 @@ void Action::userLogin() {
     while(flag) {
         cout << "Enter the password:" << endl;
         cin >> buf;
-        if (buf != readUser.getPass()) {
+        if (buf != demo.getPass()) {
             cout << "Incorrect password!" << endl;
         }
         else {
-            cout << "Welcome " << readUser.getName() << endl;
+            cout << "Welcome " << demo.getName() << endl;
             flag = false;
         }
     }
@@ -65,8 +68,8 @@ void Action::startApp() {
     loadUser.open("userslist.dat", ios::binary|ios::in);
     if(!loadUser)
     {
-        if(initializeFile()) {
-            createUser();
+        if(demo.initializeFile()) {
+            demo.createUser();
         }
         else
             cerr<<"Fail to create the initialization file"<<endl;

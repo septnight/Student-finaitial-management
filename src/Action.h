@@ -7,9 +7,10 @@
 #include "User.h"
 #include "Localtime.h"
 #include <fstream>
-class Action:User{
+class Action{
 public:
     Action();
+    User demo;
     void userLogin();
     void startApp();
 private:
