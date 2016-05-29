@@ -3,12 +3,17 @@
 //
 #include "User.h"
 #include <iostream>
-#include <fstream>
-#include <sstream>
+
 using namespace std;
 
 
 int User::getUserNumber() {
     return 0;
 }
+
+User::User() {
+
+}
+
+
 

@@ -10,6 +10,7 @@
 /* XXX: should be composition, not inheritance */
 
 struct User{
+	User();
 	std::string Username;
 	Localtime createDate;
 	std::string Password;

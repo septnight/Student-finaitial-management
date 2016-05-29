@@ -8,9 +8,6 @@
 
 using namespace std;
 
-Action::Action() {
-}
-
 
 void Action::userLogin() {
     ifstream compare("userslist.dat", ios::in|ios::binary);

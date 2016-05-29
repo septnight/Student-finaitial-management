@@ -9,7 +9,6 @@
 #include <fstream>
 class Action{
 public:
-    Action();
     User demo;
     void userLogin();
     void startApp();
